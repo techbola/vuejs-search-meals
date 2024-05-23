@@ -11,7 +11,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5 p-8">
       <div v-for="meal of meals" :key="meal.idMeal" class="bg-white shadow rounded-xl">
-        <router-link to="/">
+        <router-link :to="{ name: 'mealDetails', params: { id: meal.idMeal }}">
           <img :src="meal.strMealThumb" :alt="meal.strMeal" class="rounded-t-xl w-full h-48 object-cover">
         </router-link>
         <div class="px-3">
@@ -23,17 +23,8 @@
             unde velit voluptates!
           </p>
           <div class="py-2 mb-4 flex items-center justify-between">
-            <a
-              :href="meal.strYoutube"
-              target="_blank"
-              class="px-3 py-2 rounded text-white border-2 border-red-500 bg-red-500 hover:bg-red-600 hover:text-white transition-colors"
-            >
-              Youtube
-            </a>
-            <router-link
-              to="/"
-              class="px-3 py-2 rounded text-white border-2 border-purple-500 bg-purple-500 hover:bg-purple-600 hover:text-white transition-colors"
-            >View</router-link>
+            <ExternalLink :href="meal.strYoutube" color="red">Go to Youtube</ExternalLink>
+            <InternalLink path-name="mealDetails" :path-param="meal.idMeal">View</InternalLink>
           </div>
         </div>
 
@@ -44,8 +35,10 @@
 <script setup>
 
 import {computed, onMounted, ref} from "vue";
-  import store from "../store/index.js";
-  import {useRoute} from "vue-router";
+import store from "../store/index.js";
+import {useRoute} from "vue-router";
+import ExternalLink from "../components/ExternalLink.vue";
+import InternalLink from "../components/InternalLink.vue";
 
   const route = useRoute();
   const keyword = ref('');

@@ -4,4 +4,5 @@ export default {
   //   data: [],
   // },
   searchedMeals: [],
+  mealDetails: {},
 };
