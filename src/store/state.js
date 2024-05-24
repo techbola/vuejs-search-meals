@@ -5,4 +5,6 @@ export default {
   // },
   searchedMeals: [],
   mealDetails: {},
+  mealsByLetter: [],
+  mealsByIngredient: [],
 };

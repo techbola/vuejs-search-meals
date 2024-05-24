@@ -13,3 +13,17 @@ export function getMealDetails({ commit }, mealId) {
       commit('setMealDetails', data.meals[0] || {})
     })
 }
+
+export function searchMealsByLetter({ commit }, letter) {
+  axiosClient.get(`search.php?f=${letter}`)
+    .then(({ data }) => {
+      commit('setMealsByLetter', data.meals)
+    })
+}
+
+export function searchMealsByIngredient({ commit }, ingredient) {
+  axiosClient.get(`filter.php?i=${ingredient}`)
+    .then(({ data }) => {
+      commit('setMealsByIngredient', data.meals)
+    })
+}
