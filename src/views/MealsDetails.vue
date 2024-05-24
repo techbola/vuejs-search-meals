@@ -1,6 +1,6 @@
 <template>
   <div class="max-w-[800px] mx-auto p-8">
-    <h1 class="text-5xl font-bold mb-5">{{ meal.strMeal }}</h1>
+    <h1 class="text-5xl font-bold mb-5 text-orange-500">{{ meal.strMeal }}</h1>
 
     <img
       :src="meal.strMealThumb"
@@ -44,7 +44,7 @@
     </div>
 
     <div class="mt-4 flex items-center gap-4">
-      <ExternalLink :href="meal.strYoutube" color="red">Go to Youtube</ExternalLink>
+      <ExternalLink :href="meal.strYoutube" color="orange">Go to Youtube</ExternalLink>
       <ExternalLink :href="meal.strSource" color="purple">View Original Source</ExternalLink>
     </div>
 

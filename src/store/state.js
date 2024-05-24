@@ -7,4 +7,5 @@ export default {
   mealDetails: {},
   mealsByLetter: [],
   mealsByIngredient: [],
+  ingredient: {},
 };
